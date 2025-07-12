@@ -1,0 +1,6 @@
+age,campaign,pdays,previous,cons.price.idx,cons.conf.idx,euribor3m,was_contacted,job,marital,education,housing,contact,month,day_of_week,poutcome
+35,2,999,0,93.994,-36.4,4.857,1,services,married,high.school,no,telephone,may,mon,nonexistent
+45,3,999,1,94.465,-41.8,4.5,0,technician,single,university.degree,yes,cellular,jul,tue,nonexistent
+52,1,999,0,92.201,-42.0,0.883,1,admin.,divorced,basic.6y,no,telephone,aug,fri,failure
+29,2,999,2,94.055,-30.1,1.327,0,student,single,university.degree,no,cellular,nov,wed,nonexistent
+48,4,999,1,93.918,-33.0,2.654,1,blue-collar,married,high.school,yes,cellular,jun,thu,nonexistent
