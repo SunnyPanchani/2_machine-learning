@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Batch Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎧 Batch Song Prediction</h1>
+        <p><a href="/">← Back to Single Prediction</a></p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload CSV File:</label>
+            <input type="file" name="file" id="file" accept=".csv" required>
+            
+            <button type="submit">Predict Clusters</button>
+        </form>
+
+        {% if message %}
+            {% if message is string %}
+            <div class="error">
+                ⚠️ {{ message }}
+            </div>
+            {% else %}
+            <div class="result">
+                ✅ {{ message.text }}
+                <p>
+                    <a href="{{ url_for('download', filename=message.filename) }}" class="download-btn">
+                        Download Results
+                    </a>
+                </p>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        {% if result_table %}
+<h2>📋 Prediction Results</h2>
+<div class="table-container">
+    {{ result_table|safe }}
+</div>
+
+<a href="{{ url_for('download', filename=result_filename) }}" class="btn">⬇️ Download CSV</a>
+{% endif %}
+
+
+        <div class="sample-section">
+            <h3>Need a sample file?</h3>
+            <p>Download our template to see the required format:</p>
+            <a href="{{ url_for('download_sample') }}" class="download-btn">
+                Download Sample CSV
+            </a>
+        </div>
+    </div>
+</body>
+</html>
