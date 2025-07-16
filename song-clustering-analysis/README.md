@@ -37,7 +37,7 @@ This project is a machine learning web app that clusters songs based on audio fe
 📁 static/
 └── style.css
 📁 data/
-└── spotify_data.csv # Raw or processed dataset
+└── data.html # Raw or processed dataset
 📁 results/
 └── *.csv # Prediction outputs
 📁 uploads/
