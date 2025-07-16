@@ -34,10 +34,9 @@ This project is a machine learning web app that clusters songs based on audio fe
 ├── index.html
 ├── upload.html
 └── results.html
+└── data.html
 📁 static/
 └── style.css
-📁 data/
-└── data.html # Raw or processed dataset
 📁 results/
 └── *.csv # Prediction outputs
 📁 uploads/
