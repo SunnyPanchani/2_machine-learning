@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎧 Song Cluster Prediction</h1>
+        <p><a href="/">← Back to Single Prediction</a></p>
+
+        <!-- CSV Upload Section -->
+        <div class="section">
+            <h2>Batch Prediction (Upload CSV)</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="file">Upload CSV File:</label>
+                <input type="file" name="file" id="file" accept=".csv" required>
+                <button type="submit">Predict Clusters</button>
+            </form>
+        </div>
+
+        <!-- Single Song Prediction via CSV Form -->
+        <div class="section">
+            <h2>Single Song Prediction </h2>
+            <form action="/upload" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csv_danceability">Danceability</label>
+                        <input type="number" name="csv_danceability" step="0.01" min="0" max="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="csv_energy">Energy</label>
+                        <input type="number" name="csv_energy" step="0.01" min="0" max="1" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csv_valence">Valence</label>
+                        <input type="number" name="csv_valence" step="0.01" min="0" max="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="csv_tempo">Tempo</label>
+                        <input type="number" name="csv_tempo" step="0.01" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csv_acousticness">Acousticness</label>
+                        <input type="number" name="csv_acousticness" step="0.01" min="0" max="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="csv_instrumentalness">Instrumentalness</label>
+                        <input type="number" name="csv_instrumentalness" step="0.01" min="0" max="1" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csv_speechiness">Speechiness</label>
+                        <input type="number" name="csv_speechiness" step="0.01" min="0" max="1" required>
+                    </div>
+                </div>
+                
+                <button type="submit">Predict Single Song</button>
+            </form>
+
+            <!-- ℹ️ Note below form -->
+            <p style="margin-top: 10px; font-style: italic; color: #555;">
+                ℹ️ How to fill values? See guide below ⬇️
+            </p>
+        </div>
+
+        <!-- Message or error block -->
+        {% if message %}
+            {% if message is string or message is mapping and 'error' in message %}
+            <div class="error">
+                ⚠️ {{ message.error if message is mapping else message }}
+            </div>
+            {% else %}
+            <div class="result">
+                ✅ {{ message.text }}
+                <p>
+                    <a href="{{ url_for('download', filename=message.filename) }}" class="download-btn">
+                        Download Results
+                    </a>
+                </p>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        <!-- Sample CSV Section -->
+        <div class="sample-section">
+            <h3>Need a sample file?</h3>
+            <p>Download our template to see the required format:</p>
+            <a href="{{ url_for('download_sample') }}" class="download-btn">
+                Download Sample CSV
+            </a>
+            
+            <p style="margin-top: 20px;">
+                <a href="{{ url_for('results_list') }}">View all prediction results →</a>
+            </p>
+        </div>
+
+        <!-- 🎓 Guide: How to fill CSV -->
+        <hr>
+        <h3>🧠 How to Fill the CSV?</h3>
+        <p>Each row in your file should represent one song. Use the following format:</p>
+
+        <table border="1" cellpadding="5">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Range</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>danceability</td><td>0.0 – 1.0</td><td>Suitability for dancing (rhythm/beat)</td></tr>
+            <tr><td>energy</td><td>0.0 – 1.0</td><td>Intensity and activity</td></tr>
+            <tr><td>valence</td><td>0.0 – 1.0</td><td>Musical positivity (happy/sad)</td></tr>
+            <tr><td>tempo</td><td>50 – 250</td><td>Beats per minute (BPM)</td></tr>
+            <tr><td>acousticness</td><td>0.0 – 1.0</td><td>How acoustic the track is</td></tr>
+            <tr><td>instrumentalness</td><td>0.0 – 1.0</td><td>Higher = fewer vocals</td></tr>
+            <tr><td>speechiness</td><td>0.0 – 1.0</td><td>Spoken words content</td></tr>
+          </tbody>
+        </table>
+
+        <p>✅ Don’t include the <code>cluster</code> column — the model will predict it for you.</p>
+    </div>
+</body>
+</html>
