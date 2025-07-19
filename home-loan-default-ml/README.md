@@ -60,4 +60,5 @@ Due to its size (~2.3GB), you must download the dataset manually from Kaggle and
 ### ▶️ Run Locally Or Colab 
 
 pip install -r requirements.txt
+Run app.py in coda base 3.12.5
 
