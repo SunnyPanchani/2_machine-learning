@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Single Prediction Form</h2>
+<form method="POST" action="/predict_single">
+    <label>AMT_INCOME_TOTAL:</label><br>
+    <input name="AMT_INCOME_TOTAL" required><br><br>
+    
+    <label>AMT_CREDIT:</label><br>
+    <input name="AMT_CREDIT" required><br><br>
+
+    <label>AMT_ANNUITY:</label><br>
+    <input name="AMT_ANNUITY" required><br><br>
+
+    <label>AMT_GOODS_PRICE:</label><br>
+    <input name="AMT_GOODS_PRICE" required><br><br>
+
+    <label>NAME_CONTRACT_TYPE:</label><br>
+    <input name="NAME_CONTRACT_TYPE" required><br><br>
+
+    <label>CODE_GENDER:</label><br>
+    <input name="CODE_GENDER" required><br><br>
+
+    <label>FLAG_OWN_CAR:</label><br>
+    <input name="FLAG_OWN_CAR" required><br><br>
+
+    <label>NAME_INCOME_TYPE:</label><br>
+    <input name="NAME_INCOME_TYPE" required><br><br>
+
+    <input type="submit" class="button" value="Predict">
+</form>
+
+{% if prediction is not none %}
+    <h3>Predicted Target: {{ prediction }}</h3>
+    <h3>Probability: {{ probability }}</h3>
+{% endif %}
+{% endblock %}

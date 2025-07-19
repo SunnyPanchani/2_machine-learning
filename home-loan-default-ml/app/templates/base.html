@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Default Predictor</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #2d3436;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: #dfe6e9;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            color: #00cec9;
+        }
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+        .button {
+            padding: 10px;
+            background: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="/">📤 Bulk Prediction</a>
+        <!-- <a href="/single">🧍 Single Prediction</a> -->
+        <!-- <a href="/download_sample">📥 Download Sample CSV</a> -->
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload application_test_merged.csv</h2>
+<form method="POST" action="/predict" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv" required>
+    <br><br>
+    <input type="submit" class="button" value="Predict and Download CSV">
+    <p><strong>Note:</strong> Predictions are made using a probability threshold of 0.69. If predicted probability ≥ 0.69, the applicant is marked as high risk (1).</p>
+
+</form>
+{% endblock %}
