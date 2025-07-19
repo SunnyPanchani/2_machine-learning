@@ -11,6 +11,7 @@ We used the official dataset from the Kaggle competition:
 👉 [Home Credit Default Risk (Kaggle)](https://www.kaggle.com/competitions/home-credit-default-risk/data)
 
 Due to its size (~2.3GB), you must download the dataset manually from Kaggle and place it in the `data/` directory.
+which contain 10 files and total 346 columns
 
 ---
 
