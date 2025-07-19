@@ -24,6 +24,8 @@ which contain 10 files and total 346 columns
   - Feature scaling
 - Model: XGBoost Classifier
 - HTML UI using Flask + Bootstrap
+- Highly imbalanced dataset
+  (Only ~8% of applicants in training data actually defaulted)
 - Prediction threshold: **0.69** (i.e., if probability ≥ 0.69, classified as *Default*)
 
 ---
