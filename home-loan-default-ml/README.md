@@ -48,12 +48,16 @@ which contain 10 files and total 346 columns
         📄 single.html    
     📁 uploads/
         📄 home_credit_test_sample.csv
+        
 📁 data/
     📄 data.txt
+    
 📁 main/
     📄 main.py
+    
 📁 notebook/
     📄 house_price_loan_merge_data.ipynb
+    
 📄 home_credit.png
 📄 project_summary.md
 📄 requirements.txt
