@@ -34,18 +34,22 @@ which contain 10 files and total 346 columns
 
 📁 app/
     📄 app.py
+    
     📁 models/
         📄 cat_imputer.pkl
         📄 num_imputer.pkl
         📄 ohe.pkl        
         📄 scaler.pkl     
         📄 xgb_model.pkl  
+        
     📁 static/
         📄 style.css      
+        
     📁 templates/
         📄 base.html      
         📄 index.html     
         📄 single.html    
+        
     📁 uploads/
         📄 home_credit_test_sample.csv
         
